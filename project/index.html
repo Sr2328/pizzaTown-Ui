@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Welcome to NEW PIZZA TOWN - Best Italian cuisine">
+    <meta name="author" content="Sachin Yadav">
+    <link rel="icon" type="image/x-icon" href="/IMAGES/Screenshot 2025-02-26 160621.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>New Pizza Town - Indian Restaurant</title>
+    <style>
+         :root {
+            --primary: #ff4757;
+            --secondary: #4CAF50;
+            --accent: #ffd700;
+            --dark: #1a1a1a;
+            --light: #ffffff;
+            --glass: rgba(255, 255, 255, 0.1);
+            --glass-hover: rgba(255, 255, 255, 0.2);
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            --gradient: linear-gradient(135deg, #ff4757, #ff6b81);
+        }
+        /* Base Styles */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, var(--dark), #2c3e50);
+            color: var(--light);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+        /* Enhanced Navigation */
+        
+        .navbar {
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            transition: transform 0.3s ease;
+        }
+        
+        .logo img:hover {
+            transform: scale(1.1);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nav-links a:hover {
+            background: var(--gradient);
+            transform: translateY(-2px);
+        }
+        /* Main Container Layout */
+        
+        .main-container {
+            max-width: 1400px;
+            margin: 6rem auto 2rem;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 2rem;
+        }
+        /* Add these styles to your existing CSS */
+        /* Add these styles to your existing CSS */
+        
+        .div1 {
+            grid-column: 1 / 8;
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            height: fit-content;
+        }
+        
+        .main-img {
+            width: 100%;
+            height: 100%;
+            min-height: 400px;
+            object-fit: cover;
+            border-radius: 20px;
+            transition: transform 0.5s ease;
+        }
+        
+        .div1:hover .main-img {
+            transform: scale(1.05);
+        }
+        /* Hero Content Overlay */
+        
+        .hero-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 2rem;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: var(--light);
+        }
+        /* Adjust spacing between div1 and offer container */
+        
+        .div2 {
+            grid-column: 8 / 13;
+            margin-top: 1rem;
+        }
+        
+        .offer-container {
+            height: 100%;
+            padding: 1.5rem;
+            background: var(--glass);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        /* Responsive adjustments */
+        
+        @media (max-width: 1200px) {
+            .div1,
+            .div2 {
+                grid-column: span 6;
+            }
+            .main-img {
+                min-height: 300px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .div1,
+            .div2 {
+                grid-column: 1 / -1;
+            }
+            .main-img {
+                min-height: 250px;
+            }
+            .hero-content {
+                padding: 1.5rem;
+            }
+        }
+        
+        .offer-container {
+            padding: 1.5rem;
+            background: var(--glass);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: var(--light);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 3px;
+        }
+        
+        .offers-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .offer-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .offer-item:hover {
+            transform: translateX(10px);
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: var(--shadow);
+        }
+        
+        .offer-icon-wrapper {
+            background: var(--gradient);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .offer-icon {
+            font-size: 1.5rem;
+            color: var(--light);
+        }
+        
+        .offer-details {
+            flex: 1;
+        }
+        
+        .offer-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            color: var(--light);
+        }
+        
+        .offer-description {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .offer-code {
+            font-size: 0.8rem;
+            color: var(--accent);
+            margin-top: 0.25rem;
+            font-weight: 500;
+        }
+        
+        .offer-badge {
+            background: var(--primary);
+            color: var(--light);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            white-space: nowrap;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .offer-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            .offer-badge {
+                margin-top: 0.5rem;
+            }
+        }
+        /* Section Styles */
+        /* Add these styles to your existing CSS */
+        
+        .items-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            padding: 1rem;
+        }
+        
+        .item-card {
+            background: var(--glass);
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .item-card:hover {
+            transform: translateY(-5px);
+            background: var(--glass-hover);
+            box-shadow: var(--shadow);
+        }
+        
+        .item-img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .item-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--light);
+            margin-top: 0.5rem;
+        }
+        
+        .item-description {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin: 0.5rem 0;
+        }
+        
+        .item-price {
+            font-size: 1.1rem;
+            color: var(--accent);
+            font-weight: 600;
+        }
+        /* Enhanced New Arrivals Section */
+        
+        .arrivals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 1rem;
+        }
+        
+        .arrival-card {
+            background: var(--glass);
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--primary);
+            color: var(--light);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 1;
+            box-shadow: 0 2px 10px rgba(255, 71, 87, 0.3);
+        }
+        
+        .badge.hot {
+            background: #ff9f43;
+        }
+        /* Responsive Adjustments */
+        
+        @media (max-width: 768px) {
+            .items-grid,
+            .arrivals-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 1rem;
+            }
+            .item-img {
+                width: 100px;
+                height: 100px;
+            }
+            .item-name {
+                font-size: 1rem;
+            }
+            .item-description {
+                font-size: 0.8rem;
+            }
+        }
+        /* Add these additional styles for new badge variations */
+        
+        .badge.trending {
+            background: #9b59b6;
+        }
+        
+        .badge.special {
+            background: #3498db;
+        }
+        
+        .badge.premium {
+            background: #f1c40f;
+            color: #2c3e50;
+        }
+        /* Enhanced arrivals grid for better layout */
+        
+        .arrivals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            padding: 1rem;
+        }
+        /* Improved hover effects for arrival cards */
+        
+        .arrival-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .arrival-card:hover .arrival-img {
+            transform: scale(1.1) rotate(5deg);
+        }
+        /* Responsive adjustments */
+        
+        @media (max-width: 768px) {
+            .arrivals-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 1rem;
+            }
+            .arrival-card {
+                padding: 1rem;
+            }
+        }
+        
+        .div1 {
+            grid-column: 1 / 8;
+        }
+        
+        .div2 {
+            grid-column: 8 / 13;
+        }
+        
+        .div3 {
+            grid-column: 1 / 7;
+        }
+        
+        .div4 {
+            grid-column: 7 / 13;
+        }
+        
+        .div5 {
+            grid-column: 1 / 13;
+        }
+        
+        .div6 {
+            grid-column: 1 / 5;
+        }
+        
+        .div7 {
+            grid-column: 5 / 9;
+        }
+        
+        .div8 {
+            grid-column: 9 / 13;
+        }
+        /* Card Styles */
+        
+        .card {
+            background: var(--glass);
+            border-radius: 15px;
+            padding: 1.5rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+            background: var(--glass-hover);
+        }
+        /* Button Styles */
+        
+        .add-to-cart,
+        .map-btn,
+        .order-btn {
+            background: var(--gradient);
+            color: var(--light);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 1rem;
+        }
+        
+        .add-to-cart:hover,
+        .map-btn:hover,
+        .order-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 71, 87, 0.4);
+        }
+        /* Item Cards */
+        /* Add to your existing CSS */
+        
+        .location-container {
+            background: var(--glass);
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .map-container {
+            margin: 1rem 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .address {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .address i {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .map-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .map-btn i {
+            font-size: 1.2rem;
+        }
+        
+        @media (max-width: 768px) {
+            iframe {
+                height: 200px;
+            }
+        }
+        
+        .item-card,
+        .arrival-card {
+            position: relative;
+            overflow: hidden;
+            padding: 1rem;
+            text-align: center;
+        }
+        
+        .item-img,
+        .arrival-img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .item-card:hover .item-img,
+        .arrival-card:hover .arrival-img {
+            transform: scale(1.1) rotate(5deg);
+        }
+        /* Reviews Section */
+        
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .review-card {
+            background: var(--glass);
+            padding: 1.5rem;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .reviewer-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 3px solid var(--primary);
+        }
+        
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+            background: var(--glass-hover);
+        }
+        /* Schedule Styles */
+        /* Add these styles to your existing CSS */
+        
+        .schedule {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .day-time {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem;
+            background: var(--glass);
+            border-radius: 10px;
+            margin-bottom: 0.5rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .day-time:hover {
+            transform: translateX(10px);
+            background: var(--glass-hover);
+            box-shadow: var(--shadow);
+        }
+        
+        .day {
+            font-weight: 600;
+            color: var(--light);
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .day::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-size: 1.5rem;
+            line-height: 1;
+            animation: pulse 2s infinite;
+        }
+        
+        .time {
+            color: var(--accent);
+            font-weight: 500;
+        }
+        /* Special styling for weekends */
+        
+        .day-time:nth-child(6),
+        .day-time:nth-child(7) {
+            background: linear-gradient(135deg, rgba(255, 71, 87, 0.2), rgba(255, 107, 129, 0.2));
+        }
+        
+        .day-time:nth-child(6):hover,
+        .day-time:nth-child(7):hover {
+            background: linear-gradient(135deg, rgba(255, 71, 87, 0.3), rgba(255, 107, 129, 0.3));
+        }
+        /* Currently open indicator */
+        
+        .day-time.current {
+            border: 1px solid var(--primary);
+        }
+        
+        .day-time.current::after {
+            position: absolute;
+            right: -5px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--primary);
+            color: var(--light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        @media (max-width: 768px) {
+            .day-time {
+                padding: 0.75rem;
+            }
+            .day {
+                font-size: 0.9rem;
+            }
+            .time {
+                font-size: 0.9rem;
+            }
+        }
+        
+        .day-time {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem;
+            background: var(--glass);
+            border-radius: 10px;
+            margin-bottom: 0.5rem;
+        }
+        /* Responsive Design */
+        
+        @media (max-width: 1200px) {
+            .main-container {
+                grid-template-columns: repeat(6, 1fr);
+            }
+            .div1,
+            .div2,
+            .div3,
+            .div4 {
+                grid-column: span 6;
+            }
+            .div6,
+            .div7,
+            .div8 {
+                grid-column: span 2;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .main-container {
+                grid-template-columns: 1fr;
+                padding: 0 1rem;
+            }
+            .div1,
+            .div2,
+            .div3,
+            .div4,
+            .div5,
+            .div6,
+            .div7,
+            .div8 {
+                grid-column: 1 / -1;
+            }
+            .nav-links {
+                display: none;
+            }
+            .nav-links.active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.9);
+                padding: 1rem;
+            }
+        }
+    </style>
+    // Add this script at the end of your body tag
+    <script>
+        // Get current day and highlight it
+        document.addEventListener('DOMContentLoaded', function() {
+            const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            const today = new Date().getDay();
+            const currentTime = new Date().getHours();
+
+            const dayElements = document.querySelectorAll('.day-time');
+            dayElements[today].classList.add('current');
+
+            // Check if currently open
+            const timeElement = dayElements[today].querySelector('.time');
+            const [openHour, closeHour] = timeElement.textContent.split(' - ')
+                .map(time => parseInt(time.split(':')[0]));
+
+            if (currentTime >= openHour && currentTime < closeHour) {
+                dayElements[today].classList.add('current');
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="/IMAGES/Screenshot 2025-02-26 160621.png" alt="Pizza Town Logo" height="40">
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="menu.html">Menu</a>
+                <a href="alltextex.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </nav>
+    <main class="main-container">
+        <!-- Content sections will be here -->
+        <!-- Replace your existing div1 content -->
+        <div class="div1">
+            <img class="main-img" src="/IMAGES/Screenshot 2025-02-26 160621.png" alt="Delicious Pizza">
+            <div class="hero-content">
+                <h1>Welcome to New Pizza Town </h1>
+                <p>Experience the perfect blend of taste and tradition</p>
+            </div>
+        </div>
+        <!-- this is offer div -->
+        <div class="div2">
+            <div class="offer-container">
+                <h2 class="section-title">Hot Deals</h2>
+                <div class="offers-list">
+                    <!-- First Offer -->
+                    <div class="offer-item">
+                        <div class="offer-icon-wrapper">
+                            <i class="fas fa-percentage offer-icon"></i>
+                        </div>
+                        <div class="offer-details">
+                            <div class="offer-name">First Order Special</div>
+                            <div class="offer-description">Get 50% off on your first order</div>
+                            <div class="offer-code">Use code: FIRST50</div>
+                        </div>
+                        <div class="offer-badge">50% OFF</div>
+                    </div>
+
+                    <!-- Family Pack Offer -->
+                    <div class="offer-item">
+                        <div class="offer-icon-wrapper">
+                            <i class="fas fa-users offer-icon"></i>
+                        </div>
+                        <div class="offer-details">
+                            <div class="offer-name">Family Feast</div>
+                            <div class="offer-description">2 Large Pizzas + Sides</div>
+                            <div class="offer-code">Use code: FAMILY30</div>
+                        </div>
+                        <div class="offer-badge">30% OFF</div>
+                    </div>
+
+                    <!-- Student Offer -->
+                    <div class="offer-item">
+                        <div class="offer-icon-wrapper">
+                            <i class="fas fa-graduation-cap offer-icon"></i>
+                        </div>
+                        <div class="offer-details">
+                            <div class="offer-name">Student Special</div>
+                            <div class="offer-description">Valid with student ID</div>
+                            <div class="offer-code">Use code: STUDENT15</div>
+                        </div>
+                        <div class="offer-badge">15% OFF</div>
+                    </div>
+
+                    <!-- Happy Hours -->
+                    <div class="offer-item">
+                        <div class="offer-icon-wrapper">
+                            <i class="fas fa-clock offer-icon"></i>
+                        </div>
+                        <div class="offer-details">
+                            <div class="offer-name">Happy Hours</div>
+                            <div class="offer-description">2 PM - 5 PM Daily</div>
+                            <div class="offer-code">Use code: HAPPY20</div>
+                        </div>
+                        <div class="offer-badge">20% OFF</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- this is popular item div-->
+        <!-- Popular Items Container -->
+        <div class="div3">
+            <div class="popular-items">
+                <h2 class="section-title">Popular Items</h2>
+                <div class="items-grid">
+                    <!-- Existing Items -->
+                    <div class="item-card">
+                        <img class="item-img" src="/IMAGEs/NicePng_chicken-burger-png_2445802.png" alt="Veg Crunch Burger" loading="lazy">
+                        <span class="item-name">Veg Crunch Burger</span>
+                        <p class="item-description">Crispy patty with fresh veggies</p>
+                        <span class="item-price">₹40</span>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+
+                    <div class="item-card">
+                        <img class="item-img" src="/IMAGES/NicePng_hut-png_8114767.png" alt="Classic Pizza" loading="lazy">
+                        <span class="item-name">Classic Pizza</span>
+                        <p class="item-description">Fresh toppings & cheese</p>
+                        <span class="item-price">₹120</span>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+
+                    <!-- New Items -->
+                    <div class="item-card">
+                        <img class="item-img" src="/IMAGES/th (2).jpeg" alt="Cold Coffee" loading="lazy">
+                        <span class="item-name">Cold Coffee</span>
+                        <p class="item-description">Rich & creamy with cream</p>
+                        <span class="item-price">₹80</span>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+
+                    <div class="item-card">
+                        <img class="item-img" src="/IMAGES/th (3).jpeg" alt="Masala Maggi" loading="lazy">
+                        <span class="item-name">veg Maggie</span>
+                        <p class="item-description">Special spiced noodles</p>
+                        <span class="item-price">₹60</span>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <div class="div4">
+            <div class="new-arrivals">
+                <h2 class="section-title">New Arrivals</h2>
+                <div class="arrivals-grid">
+                    <!-- Existing items -->
+                    <div class="arrival-card">
+                        <div class="badge">NEW</div>
+                        <img class="arrival-img" src="/IMAGES/spicy-pizza.jpg" alt="Spicy Supreme Pizza" loading="lazy">
+                        <h3>Spicy Supreme</h3>
+                        <p class="description">Extra hot, extra delicious!</p>
+                        <span class="price">₹299</span>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+
+                    <!-- New Added Items -->
+                    <div class="arrival-card">
+                        <div class="badge hot">TRENDING</div>
+                        <img class="arrival-img" src="/IMAGES/butter-chicken-pizza.jpg" alt="Butter Chicken Pizza" loading="lazy">
+                        <h3> Margherita Pizza</h3>
+                        <p class="description">Creamy & cheesy or Italian crust</p>
+                        <span class="price">₹349</span>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+
+                    <div class="arrival-card">
+                        <div class="badge">NEW</div>
+                        <img class="arrival-img" src="/IMAGES/peri-peri-pasta.jpg" alt="Peri Peri Pasta" loading="lazy">
+                        <h3>Peri Peri Pasta</h3>
+                        <p class="description">Spicy and creamy pasta sensation</p>
+                        <span class="price">₹199</span>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+
+                    <div class="arrival-card">
+                        <div class="badge hot">SPECIAL</div>
+                        <img class="arrival-img" src="/IMAGES/cheese-garlic-sticks.jpg" alt="Cheese Garlic Sticks" loading="lazy">
+                        <h3>Cheese Garlic Sticks</h3>
+                        <p class="description">Loaded with molten cheese</p>
+                        <span class="price">₹149</span>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+
+                    <div class="arrival-card">
+                        <div class="badge">NEW</div>
+                        <img class="arrival-img" src="/IMAGES/choco-lava-cake.jpg" alt="Choco Lava Cake" loading="lazy">
+                        <h3>Kullhad Pizza</h3>
+                        <p class="description">A classic One</p>
+                        <span class="price">₹99</span>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+
+                    <div class="arrival-card">
+                        <div class="badge hot">PREMIUM</div>
+                        <img class="arrival-img" src="/IMAGES/truffle-pizza.jpg" alt="Truffle Pizza" loading="lazy">
+                        <h3>Truffle Pizza</h3>
+                        <p class="description">Luxury meets comfort food</p>
+                        <span class="price">₹499</span>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="div5">
+            <div class="reviews-container">
+                <h2 class="section-title">Customer Reviews</h2>
+                <div class="reviews-grid">
+                    <div class="review-card">
+                        <div class="reviewer-profile">
+                            <img src="/IMAGES/WhatsApp Image 2025-01-03 at 18.43.31_9a85f8aa.jpg" alt="John D." class="reviewer-img">
+                            <div class="reviewer-info">
+                                <h3>Sachin Yadav.</h3>
+                                <div class="stars">⭐⭐⭐⭐⭐</div>
+                            </div>
+                        </div>
+                        <p class="review-text">"Best pizza in town! Amazing flavors and quick delivery."</p>
+                        <span class="review-date">2 days ago</span>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="reviewer-profile">
+                            <img src="/IMAGES/vishal.jpg" alt="Sarah M." class="reviewer-img">
+                            <div class="reviewer-info">
+                                <h3>Vishal Mohanta.</h3>
+                                <div class="stars">⭐⭐⭐⭐⭐</div>
+                            </div>
+                        </div>
+                        <p class="review-text">"The Spicy Burger is absolutely divine! Must try!"</p>
+                        <span class="review-date">1 week ago</span>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="reviewer-profile">
+                            <img src="/IMAGES/nitin.jpg" alt="Rahul S." class="reviewer-img">
+                            <div class="reviewer-info">
+                                <h3>Nitin Gaur.</h3>
+                                <div class="stars">⭐⭐⭐⭐</div>
+                            </div>
+                        </div>
+                        <p class="review-text">"Great combo deals and excellent service!"</p>
+                        <span class="review-date">2 weeks ago</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="div6">
+            <div class="hours-container">
+                <h2 class="section-title">Opening Hours</h2>
+                <div class="schedule">
+                    <div class="day-time">
+                        <span class="day">Monday</span>
+                        <span class="time">8.00 - 21:00</span>
+                    </div>
+                    <div class="day-time">
+                        <span class="day">Tuesday</span>
+                        <span class="time">9:00 - 22:00</span>
+                    </div>
+                    <div class="day-time">
+                        <span class="day">Wednesday</span>
+                        <span class="time">9:00 - 22.00</span>
+                    </div>
+                    <div class="day-time">
+                        <span class="day">Thursday</span>
+                        <span class="time">9:00 - 22:00</span>
+                    </div>
+                    <div class="day-time">
+                        <span class="day">Friday</span>
+                        <span class="time">9:00 - 22:00</span>
+                    </div>
+                    <div class="day-time">
+                        <span class="day">Saturday</span>
+                        <span class="time">9:00 - 22:00</span>
+                    </div>
+                    <div class="day-time">
+                        <span class="day">Sunday</span>
+                        <span class="time">9:00 - 21:30</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="div7">
+            <div class="location-container">
+                <h2 class="section-title">Find Us</h2>
+                <div class="address">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>New Pizza Town sec-81 (Nakhraula)<br>Gurugram, Haryana</p>
+                </div>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3511.947989668184!2d76.95219621500673!3d28.376009182518825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d3d63ea3c4925%3A0x30579dc7631ce210!2sNew%20Pizza%20Town%20Nakhrola!5e0!3m2!1sen!2sin!4v1677456789012!5m2!1sen!2sin"
+                        width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                </div>
+                <button class="map-btn" onclick="window.open('https://maps.app.goo.gl/ZRjFN5D3c5PDSEC96', '_blank')">
+                        <i class="fas fa-directions"></i> Get Directions
+                    </button>
+
+            </div>
+        </div>
+        <div class="div8">
+            <div class="contact-container">
+                <h2 class="section-title">Contact Us</h2>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+91 9318858525</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@pizzatown.com</span>
+                    </div>
+                </div>
+                <button class="order-btn">Order Now</button>
+            </div>
+
+    </main>
+
+</body>
+
+</html>

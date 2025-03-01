@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Menu - NEW PIZZA TOWN - Best Italian & Indian Fusion">
+    <title>Menu - Pizza Town</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+         :root {
+            --primary: #ff4757;
+            --secondary: #4CAF50;
+            --accent: #ffd700;
+            --dark: #1a1a1a;
+            --light: #ffffff;
+            --glass: rgba(255, 255, 255, 0.1);
+            --glass-hover: rgba(255, 255, 255, 0.2);
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            --gradient: linear-gradient(135deg, #ff4757, #ff6b81);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, var(--dark), #2c3e50);
+            color: var(--light);
+            min-height: 100vh;
+            padding-top: 80px;
+        }
+        /* Navigation */
+        
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+        /* Navigation Styles */
+        
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+        }
+        
+        .nav-content a {
+            color: var(--light);
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-content a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--gradient);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-content a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-content a:hover::after {
+            width: 70%;
+        }
+        
+        .nav-content a.active {
+            background: var(--gradient);
+            color: var(--light);
+        }
+        /* Mobile Navigation */
+        
+        @media (max-width: 768px) {
+            .nav-content {
+                padding: 0 1rem;
+                gap: 1rem;
+                flex-wrap: wrap;
+            }
+            .nav-content a {
+                font-size: 0.9rem;
+                padding: 0.4rem 1rem;
+            }
+        }
+        /* Menu Container */
+        
+        .menu-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+        /* Menu Header */
+        
+        .menu-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .menu-header h1 {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .menu-header h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 3px;
+            background: var(--gradient);
+            border-radius: 3px;
+        }
+        /* Category Buttons */
+        
+        .menu-categories {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .category-btn {
+            background: var(--glass);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            color: var(--light);
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .category-btn.active,
+        .category-btn:hover {
+            background: var(--gradient);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+        /* Menu Grid */
+        
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            padding: 1rem;
+        }
+        /* Menu Items */
+        
+        .menu-item {
+            background: var(--glass);
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .menu-item:hover {
+            transform: translateY(-10px);
+            background: var(--glass-hover);
+            box-shadow: var(--shadow);
+            transform: scale(1.1);
+        }
+        
+        .menu-img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 1.5rem;
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .menu-item:hover .menu-img {
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        .menu-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--light);
+        }
+        
+        .menu-desc {
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 1rem;
+            min-height: 40px;
+        }
+        
+        .menu-price {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .add-btn {
+            background: var(--gradient);
+            color: var(--light);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .add-btn i {
+            font-size: 1.1rem;
+        }
+        
+        .add-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 71, 87, 0.4);
+        }
+        /* Responsive Design */
+        
+        @media (max-width: 768px) {
+            .menu-header h1 {
+                font-size: 2rem;
+            }
+            .menu-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1.5rem;
+            }
+            .menu-img {
+                width: 150px;
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="index.html">Home</a>
+            <a href="menu.html">Menu</a>
+            <a href="about2.html">About</a>
+            <a href="contact2.html">Contact</a>
+        </div>
+    </nav>
+
+    <div class="menu-container">
+        <div class="menu-header">
+            <h1>Our Menu</h1>
+            <div class="menu-categories">
+                <button class="category-btn active">All</button>
+                <button class="category-btn">Pizza</button>
+                <button class="category-btn">Burgers</button>
+                <button class="category-btn">Pasta</button>
+                <button class="category-btn">Beverages</button>
+                <button class="category-btn">Sandwich</button>
+                <button class="category-btn">Maggie</button>
+                <button class="category-btn">Snacks</button>
+                <button class="category-btn">Wrap</button>
+                <button class="category-btn">Omelette</button>
+            </div>
+        </div>
+
+        <div class="menu-grid">
+            <!-- Menu items will be dynamically loaded here -->
+        </div>
+    </div>
+
+    <script>
+        // Menu items data
+        const menuItems = [
+
+            // THIS IS PIZZA ITEM SECTION
+            {
+                category: 'pizza',
+                name: 'Tomato Pizza',
+                description: 'Classic tomato base pizza',
+                price: '₹130',
+                image: '/IMAGES/Tomato pizza.jpeg' // Updated image path'
+            }, {
+                category: 'pizza',
+                name: 'Onion Pizza',
+                description: 'Fresh onion toppings',
+                price: '₹130',
+                image: '/IMAGES/onionpizza.jpeg'
+            }, {
+                category: 'pizza',
+                name: 'Capsicum Pizza',
+                description: 'Fresh capsicum toppings',
+                price: '₹130',
+                image: '/IMAGES/capsicum pizza.jpeg'
+            }, {
+                category: 'pizza',
+                name: 'Mix Veg Pizza',
+                description: 'Assorted vegetables',
+                price: '₹150',
+                image: '/IMAGES/mix page pizza.jpeg'
+            }, {
+                category: 'pizza',
+                name: 'Farm House Pizza',
+                description: 'Fresh farm vegetables',
+                price: '₹230',
+                image: '/IMAGES/farm house pizza.jpeg'
+            }, {
+                category: 'pizza',
+                name: 'Cheese Burst Pizza',
+                description: 'Extra cheese filled crust',
+                price: '₹240',
+                image: '/IMAGES/cheese burst pizza.jpg'
+            }, {
+                category: 'pizza',
+                name: 'Corn Pizza',
+                description: 'Extra Corn cheese filled crust',
+                price: '₹140',
+                image: '/IMAGES/corn pizza.avif'
+            }, {
+                category: 'pizza',
+                name: 'Spicy Pizza',
+                description: 'Extra Spicy and cheese filled crust',
+                price: '₹160',
+                image: '/IMAGES/spicy pizza.jpeg'
+            }, {
+                category: 'pizza',
+                name: 'Deluxe Pizza',
+                description: 'Deluxe Class one',
+                price: '₹170',
+                image: '/IMAGES/deluxe pizza.jpeg'
+            }, {
+                category: 'pizza',
+                name: 'Paneer Corma Pizza',
+                description: 'Paneer and cheese filled crust',
+                price: '₹180',
+                image: '/IMAGES/paneer korma.png'
+            }, {
+                category: 'pizza',
+                name: 'Town Special Pizza',
+                description: 'Our Special',
+                price: '₹250',
+                image: '/IMAGES/town special.jpeg'
+            },
+            // THIS IS BURGER ITEM SECTION
+            {
+                category: 'burgers',
+                name: 'Veg Crunch Burger',
+                description: 'Beef patty, cheddar cheese, lettuce, tomato',
+                price: '₹149',
+                image: '/IMAGES/veg crunch.jpeg'
+            }, {
+                category: 'burgers',
+                name: 'Veg-Spicy Burger',
+                description: 'Grilled chicken, mayo, lettuce, tomato',
+                price: '₹169',
+                image: '/IMAGES/spicy burger.jpeg'
+            }, {
+                category: 'burgers',
+                name: 'Veg-Italian Burger',
+                description: 'Grilled Tikki, mayo, lettuce, tomato',
+                price: '₹70',
+                image: '/IMAGES/italian burger.jpeg'
+            }, {
+                category: 'burgers',
+                name: 'Maharaja-Burger',
+                description: 'Grilled Tikki, mayo, lettuce, tomato',
+                price: '₹120',
+                image: '/IMAGES/mahraja burger.jpeg'
+            }, {
+                category: 'burgers',
+                name: 'Veg-Classic Burger',
+                description: 'Grilled Tikki, mayo, lettuce, tomato',
+                price: '₹60',
+                image: '/IMAGES/veg classic.jpeg'
+            }, {
+                category: 'burgers',
+                name: 'Veg-paneer-Burger',
+                description: 'Grilled Tikki, mayo, lettuce, paneer,tomato',
+                price: '₹80',
+                image: '/IMAGES/vegpaneer burger.jpeg'
+            },
+            // THIS IS PASTA-ITEM SECTION
+            {
+                category: 'pasta',
+                name: 'Red Sauce Spicy Pasta',
+                description: 'Red sauce, tomato sauce, parmesan',
+                price: 'H-₹70 F-₹130',
+                image: '/IMAGES/red sauce pasta.jpeg'
+            }, {
+                category: 'pasta',
+                name: 'White Sauce Pasta',
+                description: 'White sauce, cream, parmesan',
+                price: 'H-₹70 F-₹130',
+
+                image: '/IMAGES/white sauce pasta.jpeg'
+            }, {
+                category: 'pasta',
+                name: 'Tandoori Pasta',
+                description: 'Tandoori sauce, cream, parmesan',
+                price: 'H-₹80 F-₹150',
+
+                image: '/IMAGES/tandori pasta.jpeg'
+            },
+
+            , {
+                category: 'pasta',
+                name: 'Mix Sauce Pasta',
+                description: 'Mix sauce, cream, parmesan',
+                price: 'H-₹100 F-₹180',
+
+                image: '/IMAGES/mix sauce pasta.jpeg'
+            },
+            // THIS IS BEVERAGES ITEM SECTION
+
+            {
+                category: 'beverages',
+                name: 'Cold Drink',
+                description: 'All soft drink & Cold drink',
+                price: '₹10,,₹20,₹30,₹40,₹50,₹90,₹100',
+                image: '/IMAGES/coldrink.jpeg'
+            }, {
+                category: 'beverages',
+                name: 'Plain Chai',
+                description: 'Tea',
+                price: '₹10',
+                image: '/IMAGES/plain tea.jpeg'
+            }, {
+                category: 'beverages',
+                name: 'Kullhad Chai',
+                description: 'Kullhad Tea , Pure natural masalas',
+                price: '₹20',
+                image: '/IMAGES/kullhad tea.jpeg'
+            }, {
+                category: 'beverages',
+                name: 'Sp. Kullhad Chai',
+                description: 'Sp. Kullhad Tea , Pure natural masalas',
+                price: '₹30',
+                image: '/IMAGES/sp tea.webp'
+            }, {
+                category: 'beverages',
+                name: 'Green Tea',
+                description: 'Green Tea',
+                price: '₹40',
+                image: '/IMAGES/green tea.jpeg'
+            }, {
+                category: 'beverages',
+                name: 'Hot Coffee',
+                description: ' Black hot coffee',
+                price: '₹40',
+                image: '/IMAGES/black coffee.jpeg'
+            }, {
+                category: 'beverages',
+                name: 'Hot coffee',
+                description: 'Regular hot coffee',
+                price: '₹50',
+                image: '/IMAGES/regular hot.jpeg'
+            }, {
+                category: 'beverages',
+                name: 'Cold Coffee',
+                description: 'Creamy Cold coffee',
+                price: '₹80',
+                image: '/IMAGES/cold coffee.jpeg'
+            }, {
+                category: 'beverages',
+                name: 'Milk Shake',
+                description: 'Chocolate,Butterscotch,Strawberry',
+                price: '₹80',
+                image: '/IMAGES/combo.jpg'
+            }, {
+                category: 'beverages',
+                name: 'Milk Shake',
+                description: 'Vaniila ',
+                price: '₹60',
+                image: '/IMAGES/vanilla.jpeg'
+            }, {
+                category: 'beverages',
+                name: 'Milk Shake',
+                description: 'Oreo',
+                price: '₹90',
+                image: '/IMAGES/oreo shake.jpeg'
+            }, {
+
+                category: 'beverages',
+                name: 'Milk Shake',
+                description: 'Kitkat',
+                price: '₹100',
+                image: '/IMAGES/kitkat shake.jpeg'
+            },
+            // THIS IS SANDWICH ITEM SECTION
+            {
+                category: 'sandwich',
+                name: 'Veg Club Grilled Sandwich',
+                Description: 'Grilled and Crispy Sandwich',
+                price: 'F-₹80',
+                image: '/IMAGES/veg club sand.jpeg'
+            }, {
+                category: 'sandwich',
+                name: ' Paneer Grilled Sandwich',
+                Description: 'Cheese and Crispy Sandwich',
+                price: 'H-60  F-₹110',
+                image: '/IMAGES/paneer sand.avif'
+            }, {
+                category: 'sandwich',
+                name: 'Spicy Corn Sandwich',
+                Description: 'Paneer and Crispy Sandwich',
+                price: 'H-70  F-₹130',
+                image: '/IMAGES/spicy corn sand.webp'
+            }, {
+                category: 'sandwich',
+                name: 'Butter Toast (4 <SUB>pcs</SUB>)',
+                Description: 'Butter and Crispy Toast',
+                price: ' F-₹40',
+                image: '/IMAGES/butter toast.jpeg'
+            },
+            // THIS IS SNACKS ITEM SECTION
+            {
+                category: 'snacks',
+                name: 'French Fries-Regular',
+                Description: 'Crispy french fries',
+                price: '₹70',
+                image: '/IMAGES/regular fries.jpeg'
+            }, {
+                category: 'snacks',
+                name: 'French Fries-Spicy',
+                Description: 'Spicy french fries',
+                price: '₹80',
+                image: '/IMAGES/spicy fries.jpg'
+            }, {
+                category: 'snacks',
+                name: 'French Fries-Large',
+                Description: 'large size',
+                price: '₹100',
+                image: '/IMAGES/large fries.jpg'
+            }, {
+                category: 'snacks',
+                name: 'French Fries-Loaded',
+                Description: 'Loaded french fries',
+                price: '₹140',
+                image: '/IMAGES/loaded fries.jpg'
+            }, {
+                category: 'snacks',
+                name: 'French Fries-Spicy',
+                Description: 'Extra Spicy french fries',
+                price: '₹110',
+                image: '/IMAGES/spicy 2 fries.jpeg'
+            }, {
+                category: 'snacks',
+                name: 'Veg.Nuggets-6pcs.',
+                Description: 'Potato Nuggets',
+                price: '₹40',
+                image: '/IMAGES/nuggets 6.jpeg'
+            }, {
+                category: 'snacks',
+                name: 'Veg.Nuggets-9pcs.',
+                Description: 'Potato Nuggets',
+                price: '₹60',
+                image: '/IMAGES/nuggets 9.jpeg'
+            }, {
+                category: 'snacks',
+                name: 'Veg.Strip-6pcs',
+                Description: 'Potato Strip',
+                price: '₹60',
+                image: '/IMAGES/strips.webp'
+            }, {
+                category: 'snacks',
+                name: 'Veg.Strip-9pcs',
+                Description: 'Potato Strip',
+                price: '₹60',
+                image: '/IMAGES/strips.webp'
+            },
+            //THIS IS MAGGIE SECTION
+            {
+                category: 'maggie',
+                name: 'Veg-Maggie',
+                Description: 'Pure and fresh vegetable Maggie',
+                price: '₹60',
+                image: '/IMAGES/veg maggie.jpg',
+            }, {
+                category: 'maggie',
+                name: 'Plain-Maggie',
+                Description: 'Plain Masala Maggie',
+                price: '₹50',
+                image: '/IMAGES/plain maggie.webp',
+            }, {
+                category: 'maggie',
+                name: 'Paneer-Maggie',
+                Description: 'Rich with Paneer',
+                price: '₹70',
+                image: '/IMAGES/paneer maggie.jpeg',
+            }, {
+                category: 'maggie',
+                name: 'Cheese-Maggie',
+                Description: 'Loaded with cheese',
+                price: '₹80',
+                image: '/IMAGES/cheese maggie.webp',
+            }, {
+                category: 'maggie',
+                name: 'Tandoori-Maggie',
+                Description: 'Creamy filled with tandoori taste',
+                price: '₹90',
+                image: '/IMAGES/tandoori maggie.jpeg',
+            }, {
+                category: 'maggie',
+                name: 'Egg-Maggie',
+                Description: 'Mixed With Egg',
+                price: '₹100',
+                image: '/IMAGES/egg maggie.jpeg'
+            },
+            //THIS IS WRAP ITEM SECTION
+            {
+                category: 'wrap',
+                name: 'Spicy-Wrap',
+                Description: 'Veggie And Sicy Wrap',
+                price: '₹80',
+                image: '/IMAGES/spicy wrap.jpeg'
+            }, {
+                category: 'wrap',
+                name: 'veg-Wrap',
+                Description: 'Veggie And Creamy Wrap',
+                price: '₹100',
+                image: '/IMAGES/veg wrap.jpeg'
+            }, {
+                category: 'wrap',
+                name: 'Paneer-Wrap',
+                Description: 'Panner,Veggie And Creamy Wrap',
+                price: '₹120',
+                image: '/IMAGES/paneer wrap.jpg'
+            },
+            //THIS IS OMLATE SECTION
+            {
+                category: 'omelette',
+                name: 'Plain-omelette',
+                description: 'Plain Egg Omlate',
+                price: '₹50',
+                image: '/IMAGES/plain omlette.jpg',
+
+
+            }, {
+                category: 'omelette',
+                name: 'Bread-omelette',
+                description: ' Bread Omlate',
+                price: '₹60',
+                image: '/IMAGES/bread omelette.jpeg',
+
+
+            }, {
+                category: 'omelette',
+                name: 'Cheese-omelette',
+                description: ' Fully loaded with cheese Egg Omlate',
+                price: '₹100',
+                image: '/IMAGES/chesse omelette.jpeg',
+
+
+            },
+
+        ];
+
+        function renderMenuItems(category = 'all') {
+            const menuGrid = document.querySelector('.menu-grid');
+            menuGrid.innerHTML = '';
+
+            menuItems.forEach(item => {
+                if (category === 'all' || item.category === category) {
+                    // Choose icon based on category
+                    const icon = getItemIcon(item.category);
+
+                    const menuItem = `
+                <div class="menu-item" data-category="${item.category}">
+                    <img src="${item.image}" alt="${item.name}" class="menu-img" loading="lazy">
+                    <h3 class="menu-name">${item.name}</h3>
+                    <p class="menu-desc">${item.description}</p>
+                    <div class="menu-price">${item.price}</div>
+                    <button class="add-btn">
+                        <i class="${icon}"></i>
+                        Order Now
+                    </button>
+                </div>
+            `;
+                    menuGrid.innerHTML += menuItem;
+                }
+            });
+
+            // Add click event for order buttons
+            const orderButtons = document.querySelectorAll('.add-btn');
+            orderButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const item = this.closest('.menu-item');
+                    const itemName = item.querySelector('.menu-name').textContent;
+                    const itemPrice = item.querySelector('.menu-price').textContent;
+                    const category = item.dataset.category;
+                    const icon = getItemIcon(category);
+
+                    // Add animation to button
+                    this.innerHTML = '<i class="fas fa-check"></i> Added!';
+                    this.style.background = 'var(--secondary)';
+
+                    setTimeout(() => {
+                        this.innerHTML = `<i class="${icon}"></i> Order Now`;
+                        this.style.background = '';
+                    }, 2000);
+                });
+            });
+        }
+
+        // Helper function to get category-specific icons
+        function getItemIcon(category) {
+            switch (category) {
+                case 'pizza':
+                    return 'fas fa-pizza-slice';
+                case 'burgers':
+                    return 'fas fa-hamburger';
+                case 'pasta':
+                    return 'fas fa-utensils';
+                case 'beverages':
+                    return 'fas fa-coffee';
+                case 'sandwich':
+                    return 'fas fa-bread-slice';
+                case 'maggie':
+                    return 'fas fa-bowl-food';
+                case 'snacks':
+                    return 'fas fa-cookie';
+                case 'wrap':
+                    return 'fas fa-scroll';
+                case 'omelette':
+                    return 'fas fa-egg';
+                default:
+                    return 'fas fa-utensils';
+            }
+        }
+        // Initialize menu
+        renderMenuItems();
+
+        // Category filter functionality
+        const categoryBtns = document.querySelectorAll('.category-btn');
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                categoryBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const category = btn.textContent.toLowerCase();
+                renderMenuItems(category);
+            });
+        });
+    </script>
+</body>
+
+</html>
